@@ -32,10 +32,10 @@ public class BrowserCommandExample {
         }
     }
 
-//    @Test
-//    public void getPageSource() throws InterruptedException {
-//        System.out.println(driver.getPageSource());
-//    }
+    @Test
+    public void getPageSource() throws InterruptedException {
+        System.out.println(driver.getPageSource());
+    }
 
     @AfterSuite
     public void closeChromeBrowser() {
