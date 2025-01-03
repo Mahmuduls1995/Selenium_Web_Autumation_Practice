@@ -1,4 +1,4 @@
-package com.batch.assertion;
+package com.batch.selects;
 
 
 
@@ -7,13 +7,12 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.Assert;
+import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
-import org.testng.asserts.SoftAssert;
 
-public class HardAssertionExample {
+public class SelectByIndexExample {
 
     WebDriver driver;
 
@@ -26,21 +25,15 @@ public class HardAssertionExample {
 
     @Test
     public void openURL() throws InterruptedException {
-        driver.get("https://www.tutorialspoint.com/selenium/practice/selenium_automation_practice.php");
+        driver.get("https://www.tutorialspoint.com/selenium/practice/select-menu.php");
         Thread.sleep(5000);
 
-        String expectedTitle = "Selenium Practice - Student Registration ";
-        String actualTitle = driver.getTitle();
+        WebElement dropdown = driver.findElement(By.id("inputGroupSelect03"));
+        Select select = new Select(dropdown);
+        select.selectByIndex(2);
 
-        SoftAssert softAssert = new SoftAssert();
-        softAssert.assertEquals(actualTitle, expectedTitle);
-
-
-        WebElement element = driver.findElement(By.xpath("//input[@placeholder='First Name']"));
-        element.sendKeys("Ebrahim");
         Thread.sleep(5000);
-
-        softAssert.assertAll();
+        
 
     }
 

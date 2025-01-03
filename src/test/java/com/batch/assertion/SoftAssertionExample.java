@@ -11,9 +11,8 @@ import org.testng.Assert;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
-import org.testng.asserts.SoftAssert;
 
-public class HardAssertionExample {
+public class SoftAssertionExample {
 
     WebDriver driver;
 
@@ -29,18 +28,13 @@ public class HardAssertionExample {
         driver.get("https://www.tutorialspoint.com/selenium/practice/selenium_automation_practice.php");
         Thread.sleep(5000);
 
-        String expectedTitle = "Selenium Practice - Student Registration ";
+        String expectedTitle = "Selenium Practice - Student Registration Form";
         String actualTitle = driver.getTitle();
-
-        SoftAssert softAssert = new SoftAssert();
-        softAssert.assertEquals(actualTitle, expectedTitle);
-
+        Assert.assertEquals(expectedTitle, actualTitle);
 
         WebElement element = driver.findElement(By.xpath("//input[@placeholder='First Name']"));
         element.sendKeys("Ebrahim");
         Thread.sleep(5000);
-
-        softAssert.assertAll();
 
     }
 

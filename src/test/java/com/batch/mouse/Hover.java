@@ -1,4 +1,4 @@
-package com.batch.assertion;
+package com.batch.mouse;
 
 
 
@@ -7,13 +7,13 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
-import org.testng.asserts.SoftAssert;
 
-public class HardAssertionExample {
+public class Hover {
 
     WebDriver driver;
 
@@ -26,21 +26,19 @@ public class HardAssertionExample {
 
     @Test
     public void openURL() throws InterruptedException {
-        driver.get("https://www.tutorialspoint.com/selenium/practice/selenium_automation_practice.php");
+        driver.get("https://ssbleather.com/");
         Thread.sleep(5000);
 
-        String expectedTitle = "Selenium Practice - Student Registration ";
-        String actualTitle = driver.getTitle();
-
-        SoftAssert softAssert = new SoftAssert();
-        softAssert.assertEquals(actualTitle, expectedTitle);
 
 
-        WebElement element = driver.findElement(By.xpath("//input[@placeholder='First Name']"));
-        element.sendKeys("Ebrahim");
+        WebElement element = driver.findElement(By.xpath("//header/section[@id='brxe-flmqos']/div[@id='brxe-yqtfhp']/div[@id='brxe-88a8e8']/nav[1]/ul[1]/li[1]/div[1]/a[1]"));
+        Actions actions = new Actions(driver);
+        actions.moveToElement(element).perform();
+        Thread.sleep(3000);
+
+        WebElement shoes = driver.findElement(By.xpath("//header/section[@id='brxe-flmqos']/div[@id='brxe-yqtfhp']/div[@id='brxe-88a8e8']/nav[1]/ul[1]/li[1]/div[2]/section[1]/div[1]/div[1]/div[2]/nav[1]/ul[1]/li[4]/a[1]"));
+        shoes.click();
         Thread.sleep(5000);
-
-        softAssert.assertAll();
 
     }
 
