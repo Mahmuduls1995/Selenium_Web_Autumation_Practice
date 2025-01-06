@@ -58,7 +58,7 @@ public class CopyAndPaste {
         action.sendKeys("v");
         action.keyUp(Keys.CONTROL);
         action.build().perform();
-        Thread.sleep(5000);
+
 
     }
 
